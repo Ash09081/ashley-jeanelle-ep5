@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0b0709">
+<title>Ashley ❤️ Jeanelle | Season 1 Episode 5</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/animation.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="petals-container" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<audio id="bgMusic" loop preload="auto"><source src="assets/music/music.mp3" type="audio/mpeg"></audio>
+<button id="musicToggle" class="music-btn" aria-label="Play music">🔇</button>
+<nav id="dots" class="dots" aria-label="Scenes"></nav>
+
+<!-- 1 INTRO -->
+<section id="introScene" class="scene active">
+  <div class="stack center">
+    <div class="n-logo">N</div>
+    <p class="tracking">A NETFLIX LOVE STORY</p>
+    <div class="line"></div>
+    <p class="tracking dim">PRESENTED BY</p>
+    <h2 class="names">Ashley Reyes <span>❤️</span> Jeanelle Batalla</h2>
+    <p class="tracking rose">SEASON 1 • EPISODE 5</p>
+    <h1 class="title">FIVE MONTHS,<br>ALWAYS YOU</h1>
+    <button class="btn" data-next>Begin Episode ❤️</button>
+  </div>
+</section>
+
+<!-- 2 HERO -->
+<section id="heroScene" class="scene hero">
+  <img class="hero-bg" src="assets/images/cover.jpg" alt="" onerror="this.remove()">
+  <div class="hero-overlay"></div>
+  <div class="stack center">
+    <span class="badge">SEASON 1 • EPISODE 5</span>
+    <p id="greeting" class="greeting"></p>
+    <h1 class="title">FIVE MONTHS,<br>ALWAYS YOU</h1>
+    <p class="dim" id="dateRange"></p>
+    <div class="glass">
+      <span class="tracking dim">TOGETHER FOR</span>
+      <div id="relationshipTimer" class="timer"></div>
+      <p id="monthsaryBanner" class="banner" hidden></p>
+    </div>
+    <button class="btn" data-next>Continue ❤️</button>
+  </div>
+</section>
+
+<!-- 3 BY THE NUMBERS -->
+<section id="numbersScene" class="scene">
+  <div class="stack wide center">
+    <p class="tracking rose">LIVE FROM JUNE 7, 2026</p>
+    <h2 class="scene-title">Us, By The Numbers</h2>
+    <div id="stats" class="stats"></div>
+    <p class="dim small-note">Counting every moment since you said yes.</p>
+    <button class="btn" data-next>Open When… 💌</button>
+  </div>
+</section>
+
+<!-- 4 OPEN WHEN -->
+<section id="openScene" class="scene">
+  <div class="stack wide center">
+    <p class="tracking rose">LETTERS FOR EVERY MOMENT</p>
+    <h2 class="scene-title">Open When…</h2>
+    <p class="dim"><b id="openCount">0</b> of <b id="openTotal">0</b> opened</p>
+    <div id="envelopes" class="envelopes"></div>
+    <button class="btn" data-next>See Our Memories 📸</button>
+  </div>
+</section>
+
+<!-- 5 MEMORIES -->
+<section id="memoriesScene" class="scene">
+  <div class="stack wide">
+    <p class="tracking rose">OUR FAVORITE MOMENTS</p>
+    <h2 class="scene-title">Frames From Our Fifth Month 📸</h2>
+    <div id="gallery" class="gallery"></div>
+    <button class="btn" data-next>Our Wish List ✨</button>
+  </div>
+</section>
+
+<!-- 6 WISH LIST -->
+<section id="wishScene" class="scene">
+  <div class="stack">
+    <p class="tracking rose">SAVED ON THIS DEVICE</p>
+    <h2 class="scene-title">Things We'll Do Together</h2>
+    <div class="progress"><i id="wishBar"></i></div>
+    <p class="dim"><b id="wishDone">0</b> of <b id="wishTotal">0</b> done</p>
+    <ul id="wishList" class="wishes"></ul>
+    <div class="add-row">
+      <input id="wishInput" type="text" maxlength="80" placeholder="Add a new dream for us…" aria-label="Add a wish">
+      <button id="wishAdd" class="btn">Add</button>
+    </div>
+    <button class="btn" data-next>Read My Letter 💌</button>
+  </div>
+</section>
+
+<!-- 7 LETTER -->
+<section id="letterScene" class="scene">
+  <div class="stack letter">
+    <p class="tracking rose">A LITTLE MESSAGE FOR YOU</p>
+    <h2 class="scene-title" id="letterTitle"></h2>
+    <div id="letterBody" class="letter-body" aria-live="polite"></div>
+    <div class="row">
+      <button id="skipType" class="btn ghost">Show all</button>
+      <button id="letterNext" class="btn" data-next hidden>Final Scene ❤️</button>
+    </div>
+  </div>
+</section>
+
+<!-- 8 FINALE -->
+<section id="finaleScene" class="scene">
+  <div class="stack center">
+    <div id="endCard" class="end-card">
+      <div class="n-logo">N</div>
+      <p class="tracking dim">SEASON 1 • EPISODE 5</p>
+      <h1 class="title">FIVE MONTHS,<br>ALWAYS YOU</h1>
+      <p class="dim" id="episodeDate"></p>
+      <div class="glass next-ep">
+        <span class="tracking dim">COMING NEXT • <span id="nextEp"></span></span>
+        <div id="monthsaryCountdown" class="timer small"></div>
+      </div>
+      <div class="row">
+        <button class="btn" id="burstBtn">Send Love 💗</button>
+        <button class="btn ghost" data-goto="0">Watch Again ↻</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTE MODAL -->
+<div id="note" class="note" hidden role="dialog" aria-modal="true" aria-labelledby="noteTitle">
+  <div class="paper"><p class="tracking rose">OPEN WHEN</p><h3 id="noteTitle"></h3><p id="noteText"></p>
+  <button class="btn ghost" id="noteClose">Close</button></div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/music.js"></script>
+<script src="js/timer.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/petals.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/wishes.js"></script>
+<script src="js/parallax.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
